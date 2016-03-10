@@ -36,6 +36,7 @@
                  <li ng-repeat="message in messagesSee"> <b>{{ message.user }}:</b> {{ message.text }}</li>
              </ul>
          </div>
+
          <div class="jumbotron" style="text-align:center">
              <form ng-submit="addMessages()">
                  <input ng-model="message" type = "text" size="45">
