@@ -10,12 +10,13 @@
 <script src="app.js"></script>
 <script src="controller.js"></script>
 <!-- TITOL DE LA WEB -->
-<title>Simple Chatbox by uRi</title>
+<title>Twitter uRi</title>
 </head>
 <body ng-controller="myController">
         <div class="jumbotron" style="text-align: center">
-            <img src="twitter_image.png" alt="ECAIB Twitter" style="width:200px;height:200px;"> <!--IMATGES PER QUE QUEDI MES VISUAL LA WEB -->
-            <img src="web_logo.png" alt="Logo" style="width:800px;height:200px;"><h1></h1>
+            <!--IMATGES PER QUE QUEDI MES VISUAL LA WEB -->
+            <img src="twitter_image.png"  style="width:200px;height:200px;">
+            <img src="web_logo.png" style="width:800px;height:200px;"><h1></h1>
 
             <!-- IDENTIFICADOR DE QUI ENVIA EL MISATGE -->
                 <h5>Enter Username</h5>
@@ -25,6 +26,8 @@
                 <input ng-model="following" type = "text">
                 <input value="Follow" type="submit">
             </form>
+
+            <input onclick=window.open("info.html") value="Information" type="submit" align="left" >
 
         </div>
          <div class="container">
