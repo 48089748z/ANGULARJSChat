@@ -1,15 +1,34 @@
 app.controller("myController", ["$scope", "firebaseMessages",
     function($scope, firebaseMessages) {
-        $scope.user = "";
+        $scope.user = ""; //USUARI PER DEFECTE
+        $scope.message=""; //MISSATGE PER DEFECTE
         $scope.messages = firebaseMessages; //SINCRONITZEM AMB FIREBASE
+        $scope.messagesSee = $scope.messages;
 
-        $scope.addMessage = function() { //METODE PER AFEGIR MISATGES
+        $scope.addMessages = function() {
             $scope.messages.$add({
                 user: $scope.user,
                 text: $scope.message
             });
-            $scope.message = ""; //FIQUEM EL SCOPE BUIT DESPRES D'ENVIAR UN MISATGE
         };
+
+        $scope.showFollowing = function () { //MOSTRARA NOMES ELS TWEETS DE QUI VOLGUEM SEGUIR
+            if($scope.following != "") {
+                $scope.messagesSee = [];
+                for (var i = 0; i < $scope.messages.length; i++) {
+                    if ($scope.messages[i].user == $scope.following) {
+                        $scope.messagesSee.push({
+                            user: $scope.messages[i].user,
+                            text: $scope.messages[i].text
+                        });
+                    }
+                }
+            }
+            else
+            {
+                $scope.messagesSee = firebaseMessages;
+            }
+        }
     }
 ]);
 
